@@ -4,8 +4,8 @@
 
 This action detects pre-release NPM packages for a given package file. Pre-release packages are often Alpha packages only to be used when developing however avoided when running production code. 
 
-[![Code Quality](https://www.code-inspector.com/project/18182/score/svg)](https://frontend.code-inspector.com/public/project/18182/github-action/dashboard)
-[![Code Grade](https://www.code-inspector.com/project/18182/status/svg)](https://frontend.code-inspector.com/public/project/18182/github-action/dashboard)
+[![Code Quality](https://www.code-inspector.com/project/18194/score/svg)](https://frontend.code-inspector.com/public/project/18182/github-action/dashboard)
+[![Code Grade](https://www.code-inspector.com/project/18194/status/svg)](https://frontend.code-inspector.com/public/project/18182/github-action/dashboard)
 
 ## How to use it?
 
