@@ -1,0 +1,35 @@
+{
+  "name": "npm-pre-release-packages-detection-action",
+  "version": "1.0.0",
+  "description": "GitHub Action which detects pre-release NPM packages",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage=true",
+    "buildncc": "ncc build src/index.js -o .github/actions/npmprerelease/dist --license licenses.txt",
+    "buildnccroot": "ncc build src/index.js -o dist --license licenses.txt",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kevin-Bronsdijk/npm-pre-release-packages-detection-action.git"
+  },
+  "keywords": [],
+  "author": "Kevin Bronsdijk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kevin-Bronsdijk/npm-pre-release-packages-detection-action/issues"
+  },
+  "homepage": "https://github.com/Kevin-Bronsdijk/npm-pre-release-packages-detection-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "line-reader": "^0.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-config-google": "^0.14.0",
+    "jest": "^26.6.3",
+    "jest-each": "^26.6.2",
+    "ncc": "^0.3.6"
+  }
+}
