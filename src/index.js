@@ -8,8 +8,8 @@ const {
 
 const main = async () => {
   // `package-file-full-path`` input defined in action metadata file
-  const packageFileFullPath = core.getInput('package-file-full-path`');
-  console.log(`package-file-full-path\` ${packageFileFullPath}`);
+  const packageFileFullPath = core.getInput('package-file-full-path');
+  console.log(`package-file-full-path ${packageFileFullPath}`);
 
   const packageFileContent =
       parsePackageFile(readPackageFile(packageFileFullPath));
