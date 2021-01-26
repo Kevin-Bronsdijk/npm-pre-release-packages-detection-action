@@ -28,7 +28,7 @@ jobs:
       run: eslint .
     - run: npm test
     - run: npm i -g @vercel/ncc
-    - name: Run ncc build
+    - name: Run ncc build root
       run: npm run-script buildnccroot
     - name: Action end-to-end test
       uses: ./
