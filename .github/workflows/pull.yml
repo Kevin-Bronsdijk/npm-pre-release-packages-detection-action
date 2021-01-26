@@ -34,5 +34,5 @@ jobs:
       uses: ./
       id: npmprerelease
       with:
-        package-file-full-path: ./packages.json
+        package-file-full-path: ./package.json
     - run: echo "result ${{ steps.npmprerelease.outputs.found-pre-release }}"
