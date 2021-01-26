@@ -31,7 +31,7 @@ jobs:
     precheck:
         runs-on: ubuntu-latest
         steps:
-            - uses: kevin-bronsdijk/npm-pre-release-packages-detection-action@v1
+            - uses: kevin-bronsdijk/npm-pre-release-packages-detection-action@v1.0.0
               id: npmprerelease
               with:
                   package-file-full-path: './package.json'
