@@ -7,11 +7,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
-
+        node-version: [12.x]
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
@@ -28,12 +26,11 @@ jobs:
       run: eslint .
     - run: npm test
     - run: npm i -g @vercel/ncc
-    - name: Run ncc build
-      run: npm run-script buildncc
+    - name: Run ncc build root
+      run: npm run-script buildnccroot
     - name: Action end-to-end test
-      uses: ./.github/actions/npmprerelease
+      uses: ./
       id: npmprerelease
       with:
-        solution-file-name:  test.sln
-        solution-path: ./tests/data/
+        package-file-full-path: ./package.json
     - run: echo "result ${{ steps.npmprerelease.outputs.found-pre-release }}"
