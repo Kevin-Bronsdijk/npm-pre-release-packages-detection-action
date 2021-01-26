@@ -29,7 +29,7 @@ jobs:
     - run: npm test
     - run: npm i -g @vercel/ncc
     - name: Run ncc build
-      run: npm run-script buildncc
+      run: npm run-script buildnccroot
     - name: Action end-to-end test
       uses: ./
       id: npmprerelease
