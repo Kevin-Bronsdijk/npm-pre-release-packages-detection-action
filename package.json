@@ -22,8 +22,7 @@
   },
   "homepage": "https://github.com/Kevin-Bronsdijk/npm-pre-release-packages-detection-action#readme",
   "dependencies": {
-    "@actions/core": "^1.2.6",
-    "line-reader": "^0.4.0"
+    "@actions/core": "^1.2.6"
   },
   "devDependencies": {
     "eslint": "^7.18.0",
