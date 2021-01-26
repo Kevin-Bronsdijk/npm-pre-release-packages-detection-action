@@ -6,6 +6,7 @@ on:
     
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -31,7 +32,7 @@ jobs:
     - name: Run ncc build
       run: npm run-script buildncc
     - name: Action end-to-end test
-      uses: ./
+    uses: ./.github/actions/npmprerelease
       id: npmprerelease
       with:
         package-file-full-path:  ./packages.json
