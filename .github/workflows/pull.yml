@@ -31,9 +31,8 @@ jobs:
     - name: Run ncc build
       run: npm run-script buildncc
     - name: Action end-to-end test
-      uses: ./.github/actions/npmprerelease
+      uses: ./
       id: npmprerelease
       with:
-        solution-file-name:  test.sln
-        solution-path: ./tests/data/
+        package-file-full-path:  ./packages.json
     - run: echo "result ${{ steps.npmprerelease.outputs.found-pre-release }}"
