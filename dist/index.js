@@ -1,9 +1,8 @@
-module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 225:
+/***/ 25:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -16,7 +15,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(195);
+const utils_1 = __nccwpck_require__(624);
 /**
  * Commands
  *
@@ -88,7 +87,7 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 336:
+/***/ 738:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -109,9 +108,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const command_1 = __nccwpck_require__(225);
-const file_command_1 = __nccwpck_require__(677);
-const utils_1 = __nccwpck_require__(195);
+const command_1 = __nccwpck_require__(25);
+const file_command_1 = __nccwpck_require__(722);
+const utils_1 = __nccwpck_require__(624);
 const os = __importStar(__nccwpck_require__(87));
 const path = __importStar(__nccwpck_require__(622));
 /**
@@ -332,7 +331,7 @@ exports.getState = getState;
 
 /***/ }),
 
-/***/ 677:
+/***/ 722:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -349,7 +348,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(747));
 const os = __importStar(__nccwpck_require__(87));
-const utils_1 = __nccwpck_require__(195);
+const utils_1 = __nccwpck_require__(624);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -367,7 +366,7 @@ exports.issueCommand = issueCommand;
 
 /***/ }),
 
-/***/ 195:
+/***/ 624:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -392,13 +391,13 @@ exports.toCommandValue = toCommandValue;
 
 /***/ }),
 
-/***/ 270:
+/***/ 475:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const fs = __nccwpck_require__(747);
-const {Package} = __nccwpck_require__(198);
+const {Package} = __nccwpck_require__(80);
 
 const readPackageFile = (path) => {
   return fs.readFileSync(path);
@@ -428,46 +427,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 689:
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
-
-
-
-const core = __nccwpck_require__(336);
-const {
-  readPackageFile,
-  parsePackageFile,
-  getPackages} = __nccwpck_require__(270);
-
-const main = async () => {
-  // `package-file-full-path`` input defined in action metadata file
-  const packageFileFullPath = core.getInput('package-file-full-path');
-  console.log(`package-file-full-path ${packageFileFullPath}`);
-
-  const packageFileContent =
-      parsePackageFile(readPackageFile(packageFileFullPath));
-
-  const packages = getPackages(packageFileContent.dependencies);
-
-  const preReleasePackages = packages.filter((obj) => {
-    return obj.isPreReplease;
-  });
-
-  if (preReleasePackages.length > 0) {
-    console.log(`list of pre-release packages found`,
-        preReleasePackages);
-    core.setOutput('found-pre-release', true);
-  } else {
-    core.setOutput('found-pre-release', false);
-  }
-};
-
-main().catch((err) => core.setFailed(err.message));
-
-
-/***/ }),
-
-/***/ 198:
+/***/ 80:
 /***/ ((module) => {
 
 
@@ -505,21 +465,21 @@ module.exports = {
 /***/ 747:
 /***/ ((module) => {
 
-module.exports = require("fs");;
+module.exports = require("fs");
 
 /***/ }),
 
 /***/ 87:
 /***/ ((module) => {
 
-module.exports = require("os");;
+module.exports = require("os");
 
 /***/ }),
 
 /***/ 622:
 /***/ ((module) => {
 
-module.exports = require("path");;
+module.exports = require("path");
 
 /***/ })
 
@@ -531,8 +491,9 @@ module.exports = require("path");;
 /******/ 	// The require function
 /******/ 	function __nccwpck_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		if(__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
@@ -557,10 +518,47 @@ module.exports = require("path");;
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat */
 /******/ 	
-/******/ 	__nccwpck_require__.ab = __dirname + "/";/************************************************************************/
-/******/ 	// module exports must be returned from runtime so entry inlining is disabled
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	return __nccwpck_require__(689);
+/******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+
+
+const core = __nccwpck_require__(738);
+const {
+  readPackageFile,
+  parsePackageFile,
+  getPackages} = __nccwpck_require__(475);
+
+const main = async () => {
+  // `package-file-full-path`` input defined in action metadata file
+  const packageFileFullPath = core.getInput('package-file-full-path');
+  console.log(`package-file-full-path ${packageFileFullPath}`);
+
+  const packageFileContent =
+      parsePackageFile(readPackageFile(packageFileFullPath));
+
+  const packages = getPackages(packageFileContent.dependencies);
+
+  const preReleasePackages = packages.filter((obj) => {
+    return obj.isPreReplease;
+  });
+
+  if (preReleasePackages.length > 0) {
+    console.log(`list of pre-release packages found`,
+        preReleasePackages);
+    core.setOutput('found-pre-release', true);
+  } else {
+    core.setOutput('found-pre-release', false);
+  }
+};
+
+main().catch((err) => core.setFailed(err.message));
+
+})();
+
+module.exports = __webpack_exports__;
 /******/ })()
 ;
